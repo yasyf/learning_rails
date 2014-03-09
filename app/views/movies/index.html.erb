@@ -1,11 +1,13 @@
 <h1>All Movies</h1>
 
+<div>
 <strong><%= link_to "Add Movie", new_movie_path %></strong>
-
-<ol>
+</div>
+<br>
+<div style="width:100%;">
 <% @movies.each do |movie| %>
-	<li>
-		<%= link_to movie.title, movie %>
-	</li>
+	<div style="display: inline-block; padding: 0 10px;">
+		<%= link_to image_tag("http://image.tmdb.org/t/p/w300#{movie.movie_meta.poster}"), movie %>
+	</div>
 <% end %>
-</ol>
+</div>
