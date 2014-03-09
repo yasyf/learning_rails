@@ -6,7 +6,9 @@
 </p>
 
 <h2>Reviews</h2>
-<%= render @movie.reviews %>
+<div id="reviews">
+	<%= render @movie.reviews %>
+</div>
 
 <h2>Add Review</h2>
 <%= render 'reviews/form' %>
