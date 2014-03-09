@@ -1,0 +1,25 @@
+<% if @movie.errors.any? %>
+<div id="error_explanation">
+	<strong><%= pluralize(@movie.errors.count, "error") %> prevented your submission:</strong>		
+	<ul>
+		<% @movie.errors.full_messages.each do |m| %>
+			<li><%= m %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>			
+
+<%= form_for @movie do |f| %>
+	<p>
+		<%= f.label :title %>
+		<% if !@movie.errors.any? %>
+		<br>
+		<% end %>
+		<%= f.text_field :title %>
+	</p>
+
+	<p>
+		<%= f.submit %>
+	</p>
+
+<% end %>

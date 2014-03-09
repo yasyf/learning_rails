@@ -1,0 +1,12 @@
+<h1><%= @movie.title %></h1>
+
+<p>
+<strong>Title: </strong>
+<%= @movie.title %>
+</p>
+<%= link_to "Edit #{@movie.title}", edit_movie_path(@movie) %>
+<br>
+<%= link_to "Delete #{@movie.title}", movie_path(@movie), method: :delete, data: {confirm: 'Are you sure?'} %>
+<br>
+<br>
+<strong><%= link_to "Back To All Movies", movies_path %></strong>
