@@ -1,9 +1,17 @@
 <h1><%= @movie.title %></h1>
 
 <p>
-<strong>Title: </strong>
-<%= @movie.title %>
+	<strong>Title: </strong>
+	<%= @movie.title %>
 </p>
+
+<h2>Reviews</h2>
+<%= render @movie.reviews %>
+
+<h2>Add Review</h2>
+<%= render 'reviews/form' %>
+
+<h2>Meta</h2>
 <%= link_to "Edit #{@movie.title}", edit_movie_path(@movie) %>
 <br>
 <%= link_to "Delete #{@movie.title}", movie_path(@movie), method: :delete, data: {confirm: 'Are you sure?'} %>
