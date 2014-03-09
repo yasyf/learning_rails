@@ -1,0 +1,13 @@
+<div id="review_<%= review.id %>">
+	<p>
+		<strong>Name: </strong>
+		<%= review.user %>
+	</p>
+	<p>
+		<strong>Review: </strong>
+		<%= review.body %>
+	</p>
+	<p>
+		<%= link_to "Delete Review", [review.movie, review], remote: true, method: :delete, data: {confirm: "Are you sure?"} %>
+	</p>
+</div>

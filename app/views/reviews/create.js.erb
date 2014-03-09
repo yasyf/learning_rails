@@ -1,0 +1,3 @@
+$("#reviews").append("<%= escape_javascript(render partial: 'review', object: @review) =%>");
+$("[name='review[user]']").val('');
+$("[name='review[body]']").val('');
