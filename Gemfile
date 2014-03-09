@@ -51,4 +51,6 @@ gem 'rails_12factor', group: :production
 
 gem 'themoviedb'
 
+gem 'unicorn'
+
 ruby "2.1.1"
