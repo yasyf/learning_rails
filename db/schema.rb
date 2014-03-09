@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140309093251) do
+ActiveRecord::Schema.define(version: 20140309112515) do
+
+  create_table "movie_meta", force: true do |t|
+    t.integer  "revenue"
+    t.integer  "length"
+    t.integer  "budget"
+    t.string   "poster"
+    t.string   "homepage"
+    t.text     "description"
+    t.string   "tagline"
+    t.float    "popularity"
+    t.date     "release_date"
+    t.integer  "movie_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "movie_meta", ["movie_id"], name: "index_movie_meta_on_movie_id"
 
   create_table "movies", force: true do |t|
     t.string   "title"

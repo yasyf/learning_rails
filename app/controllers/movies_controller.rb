@@ -11,6 +11,9 @@ class MoviesController < ApplicationController
 
 	def create
 		@movie = Movie.new(movie_params)
+		imdb = Tmdb::Movie.find(@movie.title)
+		d = Tmdb::Movie.detail(imdb[0].id)
+		@movie.create_movie_meta({revenue: d.revenue, length: d.runtime, budget: d.budget, poster: d.poster_path, homepage: d.homepage, description: d.overview, tagline: d.tagline, popularity: d.vote_average, release_date: d.release_date})
 		if @movie.save
 			redirect_to @movie
 		else

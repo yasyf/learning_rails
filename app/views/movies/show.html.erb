@@ -1,9 +1,8 @@
 <h1><%= @movie.title %></h1>
 
-<p>
-	<strong>Title: </strong>
-	<%= @movie.title %>
-</p>
+<div>
+	<%= render @movie.movie_meta %>
+</div>
 
 <h2>Reviews</h2>
 <div id="reviews">
