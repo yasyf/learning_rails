@@ -1,7 +1,7 @@
 class Movie < ActiveRecord::Base
 	has_many :reviews, dependent: :destroy
 	has_one :movie_meta
-	validates :title, presence: true, length: {minimum: 5}, uniqueness: true
+	validates :title, presence: true, length: {minimum: 3}, uniqueness: true
 	before_validation :add_meta
 
 	def add_meta

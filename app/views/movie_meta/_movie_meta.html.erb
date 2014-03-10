@@ -1,7 +1,7 @@
 <p style="float: left;">
 	<%= link_to image_tag("http://image.tmdb.org/t/p/w300#{movie_meta.poster}", size: '150x225'), movie_meta.homepage, target: "_blank" %>
 </p>
-<p style="float: left; margin-left: 10px; margin-top: 70px; ">
+<p class='info'>
 	<strong>Revenue: </strong>
 	<%= number_to_currency(movie_meta.revenue, precision: 0) %> <br>
 	<strong>Budget: </strong>
@@ -17,7 +17,9 @@
 </p>
 <div style="clear: both;"></div>
 <p style="width: 400px;">
-	"<i><%=movie_meta.tagline %></i>"
+	<% if movie_meta.tagline.length > 0 %>
+	"<i><%= movie_meta.tagline %></i>"
 	<br><br>
+	<% end %>
 	<%=movie_meta.description %>
 </p>

@@ -1,13 +1,15 @@
 <div id="review_<%= review.id %>">
 	<p>
 		<strong>Name: </strong>
-		<%= review.user %>
+		<%= review.user.name %>
 	</p>
 	<p>
 		<strong>Review: </strong>
 		<%= review.body %>
 	</p>
+	<% if signed_in? and current_user.email == review.user.email %>
 	<p>
 		<%= link_to "Delete Review", [review.movie, review], remote: true, method: :delete, data: {confirm: "Are you sure?"} %>
 	</p>
+	<% end %>
 </div>

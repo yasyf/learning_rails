@@ -1,12 +1,17 @@
 <h1>All Movies</h1>
 
 <div>
+<% if !signed_in? %>
+<strong><%= link_to "Log In", new_session_path %></strong><br>
+<% else %>
+<strong>Welcome, <%= current_user.name %></strong><br>
+<% end %>
 <strong><%= link_to "Add Movie", new_movie_path %></strong>
 </div>
 <br>
-<div style="width:100%;">
+<div style="width:100%;text-align:center;">
 <% @movies.each do |movie| %>
-	<div style="display: inline-block; padding: 0 10px;">
+	<div class='movie'>
 		<%= link_to image_tag("http://image.tmdb.org/t/p/w300#{movie.movie_meta.poster}"), movie %>
 	</div>
 <% end %>

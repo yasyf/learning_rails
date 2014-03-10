@@ -1,9 +1,10 @@
 class ReviewsController < ApplicationController
-	http_basic_authenticate_with name: "admin", password: "12345!", only: :destroy
 
 	def create
 		@movie = Movie.find(params[:movie_id])
 		@review = @movie.reviews.create(review_params)
+		@review.user = current_user
+		@review.save
 		respond_to do |format|
 			format.html { redirect_to movie_path(@movie) }
 			format.js
@@ -13,6 +14,9 @@ class ReviewsController < ApplicationController
 	def destroy
 		@movie = Movie.find(params[:movie_id])
 		@review = @movie.reviews.find(params[:id])
+		if current_user.email != @review.user.email
+			return
+		end
 		@review.destroy
 		respond_to do |format|
 			format.html { redirect_to movie_path(@movie) }

@@ -1,0 +1,36 @@
+<% if @user.errors.any? %>
+<div id="error_explanation">
+	<strong><%= pluralize(@user.errors.count, "error") %> prevented your submission:</strong>		
+	<ul>
+		<% @user.errors.full_messages.each do |m| %>
+			<li><%= m %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>			
+
+<%= form_for @user do |f| %>
+	<p>
+		<%= f.label :name %><br>
+		<%= f.text_field :name %>
+	</p>
+
+	<p>
+		<%= f.label :email %><br>
+		<%= f.text_field :email %>
+	</p>
+	
+	<p>
+		<%= f.label :password %><br>
+		<%= f.password_field :password %>
+	</p>
+
+	<p>
+		<%= f.label :password_confirmation %><br>
+		<%= f.password_field :password_confirmation %>
+	</p>
+
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>

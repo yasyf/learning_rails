@@ -9,13 +9,17 @@
 	<%= render @movie.reviews %>
 </div>
 
+<% if signed_in? %>
 <h2>Add Review</h2>
 <%= render 'reviews/form' %>
+<% end %>
 
+<% if signed_in? %>
 <h2>Meta</h2>
 <%= link_to "Edit #{@movie.title}", edit_movie_path(@movie) %>
 <br>
 <%= link_to "Delete #{@movie.title}", movie_path(@movie), method: :delete, data: {confirm: 'Are you sure?'} %>
+<% end %>
 <br>
 <br>
 <strong><%= link_to "Back To All Movies", movies_path %></strong>
